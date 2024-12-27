@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './HomePage.css'; 
 import HomePageWall2 from "../components/images/HomePageWall2.jpeg"; 
 import Logo from "../components/images/logo.png";
+import login from "../components/images/login.png"
 
 export const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,9 +17,21 @@ export const HomePage = () => {
       
       {/* Header */}
       <header className="header">
-        <img src={Logo} alt="Logo" className="logo" />
-        <h1>Welcome to My Homepage</h1>
-      </header>
+    <img src={Logo} alt="Logo" className="logo" />
+
+    <nav className="navbar">
+        <ul className="navbar-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="/sale">Sale</a></li>
+            <li><a href="/rent">Rent</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+
+    <img src={login} alt="Login" className="login" />
+</header>
+
+
 
       {/* Main Content Container */}
     <div className="HomePageContaner">

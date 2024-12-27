@@ -23,24 +23,58 @@ code {
 
 /* Header Styling */
 
+/* Header Styling */
 .header {
     display: flex;
+    height: 80px;
     align-items: center;
-    justify-content: flex-start; /* Align items to the left */
-    padding: 10px 20px;
+    justify-content: space-between; /* Space out the content */
     background-color: #ffffff;
-}
-      
-.logo {
+    position: relative; /* So that we can position the navbar and login icon correctly */
+    margin-bottom: -40px;
+    margin-top: -20px;
+    background-color: #ced1ce96;
+    width: 1517px;
+    margin-bottom: -16px;
+  }
+  
+  .logo {
+    margin-top: 20px;
     height: 100px; /* Adjust the size of the logo */
     width: auto;
-    position: absolute; /* Position the logo absolutely */
-    left: 20px; /* Move the logo 20px from the left edge */
-}
-    
-
-.header h1 {
-    margin: 0;
+    cursor: pointer;
+  }
+  
+  .login {
+    height: 50px; /* Adjust the size of the login icon */
+    width: auto;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-items {
+    display: flex;
+    list-style-type: none; /* Remove default list styling */
+    margin-top: 40px;
+    margin-left: 590px;
+    margin-right: 300px;
+    gap: 20px;
+  }
+  
+  .navbar-items a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Dark text color */
+    font-size: 18px; /* Font size for the items */
+    margin-left: 40px;
+  }
+  .navbar-items a:hover {
+    border-bottom: 2px solid #333; /* Add underline when hovering */
 }
 
 .search-bar-overlay {

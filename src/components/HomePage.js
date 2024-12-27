@@ -1,6 +1,7 @@
 import React from 'react';
-import './HomePage.css'; // Main styling for the page
-import HomePageWall2 from "../components/images/HomePageWall2.jpeg"; // Image path
+import './HomePage.css'; 
+import HomePageWall2 from "../components/images/HomePageWall2.jpeg"; 
+import Logo from "../components/images/logo.png";
 
 export const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ export const HomePage = () => {
       
       {/* Header */}
       <header className="header">
+        <img src={Logo} alt="Logo" className="logo" /> {/* Add the logo here */}
         <h1>Welcome to My Homepage</h1>
       </header>
 
@@ -23,8 +25,15 @@ export const HomePage = () => {
 
       {/* Additional content section */}
       <div className="HomePage-items-Contaner"> 
-        <p>this is one</p>
-        <p>this is two</p>
+        <div className="item-box">Item 1</div>
+        <div className="item-box">Item 2</div>
+        <div className="item-box">Item 3</div>
+        <div className="item-box">Item 4</div>
+        <div className="item-box">Item 5</div>
+        <div className="item-box">Item 6</div>
+        <div className="item-box">Item 7</div>
+        <div className="item-box">Item 8</div>
+        <div className="item-box">Item 9</div>
       </div> 
       
       {/* Footer */}

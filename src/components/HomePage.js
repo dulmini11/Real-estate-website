@@ -1,26 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './HomePage.css'; 
 import HomePageWall2 from "../components/images/HomePageWall2.jpeg"; 
 import Logo from "../components/images/logo.png";
 
 export const HomePage = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    console.log("Search Term:", searchTerm); // Handle search functionality here
+  };
+
   return (
     <div className="homepage-container">
       
       {/* Header */}
       <header className="header">
-        <img src={Logo} alt="Logo" className="logo" /> {/* Add the logo here */}
+        <img src={Logo} alt="Logo" className="logo" />
         <h1>Welcome to My Homepage</h1>
       </header>
 
       {/* Main Content Container */}
-      <div className="HomePageContaner">
-        <div className="image-content">
-          <img src={HomePageWall2} alt="HomePage Wall" />
-          <div className="text-overlay">
-            <p>"Find Where You Belong, Where Comfort Meets Convenience."</p>
-          </div>
+    <div className="HomePageContaner">
+      <div className="image-content">
+        <img src={HomePageWall2} alt="HomePage Wall" />
+       <div className="text-overlay">
+         <p>Find Where You Belong, Where Comfort Meets Convenience</p>
+       </div>
+       <div className="search-bar-overlay">
+         <h2>Search properties for sale and to rent</h2>
+       <div className="search-bar-container">
+       <input
+            type="text"
+            className="search-input"
+            placeholder="e.g. Bath, NW3, or Leeds station"
+            value={searchTerm}
+            onChange={handleSearch}
+        />
+         <button className="search-button for-sale">For sale</button>
+         <button className="search-button to-rent">To rent</button>
         </div>
+        </div>
+    </div>
+
       </div>
 
       {/* Additional content section */}

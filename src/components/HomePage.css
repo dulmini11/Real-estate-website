@@ -23,24 +23,86 @@ code {
 
 /* Header Styling */
 
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start; /* Align items to the left */
-        padding: 10px 20px;
-        background-color: #ffffff;
-      }
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the left */
+    padding: 10px 20px;
+    background-color: #ffffff;
+}
       
-      .logo {
-        height: 100px; /* Adjust the size of the logo */
-        width: auto;
-        position: absolute; /* Position the logo absolutely */
-        left: 20px; /* Move the logo 20px from the left edge */
-    }
+.logo {
+    height: 100px; /* Adjust the size of the logo */
+    width: auto;
+    position: absolute; /* Position the logo absolutely */
+    left: 20px; /* Move the logo 20px from the left edge */
+}
     
 
 .header h1 {
     margin: 0;
+}
+
+.search-bar-overlay {
+    margin-top: 150px;
+    position: absolute;
+    top: 65%; /* Adjust to position the search bar below the text overlay */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%; /* Adjust the width as needed */
+}
+
+.search-bar-overlay h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid #ccc;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #757070;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.for-sale {
+    background-color: #21c668;
+}
+
+.for-sale:hover {
+    background-color: #178b4d;
+}
+
+.to-rent {
+    background-color: #084c12;
+}
+
+.to-rent:hover {
+    background-color: #06631a;
 }
 
 

@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ /* Main container for the homepage */
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+}
+
+/* Header Styling */
+.header {
+    background-color: #333; 
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+
+.HomePageContaner {
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: space-between;
+    width: 100%;
+}
+
+.image-content {
+    position: relative;
+    width: 100%;
+}
+
+.image-content img {
+    width: 100%;
+    height: 600px; 
+    object-fit: cover;
+    filter: blur(2px); 
+}
+
+/* Text overlay container */
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.151); /* Transparent background */
+    padding: 5px;
+    border-radius: 5px;
+    
+    /* 3D text effect using text-shadow */
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.474), 
+        -2px -2px 4px rgba(0, 0, 0, 0.171), 
+        2px -2px 4px rgba(0, 0, 0, 0.307), 
+        -2px 2px 4px rgba(0, 0, 0, 0.277), 
+        4px 4px 8px rgba(0, 0, 0, 0.144); /* Adding more depth to the shadow for the 3D effect */
+}
+
+.HomePage-items-Contaner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.HomePage-items-Contaner p {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #333;
+    color: white;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+}

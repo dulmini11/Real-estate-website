@@ -7,23 +7,36 @@ import propertiesData from "../data/properties.json"; // Import properties data
 
 export const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedFilter, setSelectedFilter] = useState("All"); // State to track selected filter
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
     console.log("Search Term:", searchTerm); // Handle search functionality here
   };
 
+  const handleFilterChange = (filter) => {
+    setSelectedFilter(filter); // Update the selected filter
+  };
+
+  // Filter properties based on the selected filter
+  const filteredProperties = propertiesData.properties.filter((property) => {
+    if (selectedFilter === "All") return true;
+    return property.status === selectedFilter;
+  });
+
   return (
     <div className="homepage-container">
       
       {/* Header */}
       <header className="header">
-        <img src={Logo} alt="Logo" className="logo" />
+        <a href="/" className="logo-link">
+          <img src={Logo} alt="Logo" className="logo" />
+        </a>
         <nav className="navbar">
           <ul className="navbar-items">
-            <li><a href="/">Home</a></li>
-            <li><a href="/sale">Sale</a></li>
-            <li><a href="/rent">Rent</a></li>
+            <li><a href="#" onClick={() => handleFilterChange("All")}>Home</a></li>
+            <li><a href="#" onClick={() => handleFilterChange("Sale")}>Sale</a></li>
+            <li><a href="#" onClick={() => handleFilterChange("Rent")}>Rent</a></li>
             <li><a href="/about">About</a></li>
           </ul>
         </nav>
@@ -54,19 +67,27 @@ export const HomePage = () => {
         </div>
       </div>
 
-      {/* Additional content section */}
-      <div className="HomePage-items-Contaner"> 
-        <div className="item-box">Item 1</div>
-        <div className="item-box">Item 2</div>
-        <div className="item-box">Item 3</div>
-        <div className="item-box">Item 4</div>
-        <div className="item-box">Item 5</div>
-        <div className="item-box">Item 6</div>
-        <div className="item-box">Item 7</div>
-        <div className="item-box">Item 8</div>
-        <div className="item-box">Item 9</div>
-      </div> 
-      
+      {/* Properties Section */}
+      <div className="HomePage-items-Contaner">
+        {filteredProperties.map((property) => (
+          <div className="item-box" key={property.id}>
+            <img 
+              src={process.env.PUBLIC_URL + property.picture} 
+              className="property-image" 
+              alt={property.location} 
+            />
+            <div className="property-details">
+              <h3>{property.type}</h3>
+              <h3>{property.bedrooms} Bedrooms</h3>
+              <p>{property.location}</p>
+              <p>Price: ${property.price}</p>
+              <p>Status: {property.status}</p>
+              <a href={property.url} className="view-details">View Details</a>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Footer */}
       <footer className="footer">
         <p>&copy; 2024 My Website. All Rights Reserved.</p>

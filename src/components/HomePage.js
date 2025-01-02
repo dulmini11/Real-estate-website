@@ -4,6 +4,7 @@ import HomePageWall2 from "../components/images/HomePageWall2.jpeg";
 import Logo from "../components/images/logo.png";
 import login from "../components/images/login.png";
 import propertiesData from "../data/properties.json"; // Import properties data
+import { Link } from "react-router-dom";
 
 export const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -40,7 +41,8 @@ export const HomePage = () => {
             <li><a href="/about">About</a></li>
           </ul>
         </nav>
-        <img src={login} alt="Login" className="login" />
+        <Link to="/LoginRegister">
+        <img src={login} alt="Login" className="login" /></Link>
       </header>
 
       {/* Main Content Container */}

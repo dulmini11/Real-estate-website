@@ -3,32 +3,70 @@ import './HomePage.css';
 import HomePageWall2 from "../components/images/HomePageWall2.jpeg";
 import Logo from "../components/images/logo.png";
 import login from "../components/images/login.png";
+import heartIcon from "../components/images/heart.png"; // Add heart icon
 import propertiesData from "../data/properties.json"; // Import properties data
 import { Link } from "react-router-dom";
 
 export const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedFilter, setSelectedFilter] = useState("All"); // State to track selected filter
+  const [selectedFilter, setSelectedFilter] = useState("All");
+  const [favorites, setFavorites] = useState([]); // State to manage favorites
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
-    console.log("Search Term:", searchTerm); // Handle search functionality here
   };
 
   const handleFilterChange = (filter) => {
-    setSelectedFilter(filter); // Update the selected filter
+    setSelectedFilter(filter);
   };
 
-  // Filter properties based on the selected filter
+  const toggleFavorite = (id) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.includes(id)
+        ? prevFavorites.filter((favoriteId) => favoriteId !== id)
+        : [...prevFavorites, id]
+    );
+  };
+
   const filteredProperties = propertiesData.properties.filter((property) => {
     if (selectedFilter === "All") return true;
     return property.status === selectedFilter;
   });
 
+  
+
+  const handleDragStart = (e, propertyId) => {
+    // Store the dragged item ID in the drag event
+    e.dataTransfer.setData('propertyId', propertyId);
+    e.target.style.opacity = 0.5; // Optional: makes the dragged item look faded
+  };
+
+  const handleDragEnd = (e) => {
+    // Reset the opacity when the drag ends
+    e.target.style.opacity = 1;
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const propertyId = e.dataTransfer.getData('propertyId');
+    if (!favorites.includes(propertyId)) {
+      setFavorites([...favorites, propertyId]);
+    }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault(); // Allow drop by preventing the default behavior
+  };
+
+  const handleRemoveFavorite = (id) => {
+    const updatedFavorites = favorites.filter((favoriteId) => favoriteId !== id);
+    setFavorites(updatedFavorites);
+  };
+  
+  
+
   return (
     <div className="homepage-container">
-      
-      {/* Header */}
       <header className="header">
         <a href="/" className="logo-link">
           <img src={Logo} alt="Logo" className="logo" />
@@ -42,10 +80,10 @@ export const HomePage = () => {
           </ul>
         </nav>
         <Link to="/LoginRegister">
-        <img src={login} alt="Login" className="login" /></Link>
+          <img src={login} alt="Login" className="login" />
+        </Link>
       </header>
 
-      {/* Main Content Container */}
       <div className="HomePageContaner">
         <div className="image-content">
           <img src={HomePageWall2} alt="HomePage Wall" />
@@ -69,32 +107,88 @@ export const HomePage = () => {
         </div>
       </div>
 
-      {/* Properties Section */}
-      <div className="HomePage-items-Contaner">
-        {filteredProperties.map((property) => (
-          <div className="item-box" key={property.id}>
-            <img 
-              src={process.env.PUBLIC_URL + property.picture} 
-              className="property-image" 
-              alt={property.location} 
-            />
-            <div className="property-details">
-              <h3>{property.type}</h3>
-              <h3>{property.bedrooms} Bedrooms</h3>
-              <p>{property.location}</p>
-              <p>Price: ${property.price}</p>
-              <p>Status: {property.status}</p>
-              <a href={property.url} className="view-details">View Details</a>
+  {/* Main content with two columns */}
+  <div className="main-content">
+    {/* Left: Items Container */}
+    <div className="HomePage-items-Contaner">
+      {filteredProperties.map((property) => (
+        <div
+          className="item-box"
+          key={property.id}
+          draggable
+          onDragStart={(e) => handleDragStart(e, property.id)}
+          onDragEnd={handleDragEnd}
+        >
+          <img
+            src={process.env.PUBLIC_URL + property.picture}
+            className="property-image"
+            alt={property.location}
+          />
+          <div className="property-details">
+            <h3>{property.type}</h3>
+            <h3>{property.bedrooms} Bedrooms</h3>
+            <p>{property.location}</p>
+            <p>Price: ${property.price}</p>
+            <p>Status: {property.status}</p>
+            <a href={property.url} className="view-details">
+              View Details
+            </a>
+            <div className="favorite-container">
+              <img
+                src={heartIcon}
+                alt="Favorite"
+                className={`heart-icon ${favorites.includes(property.id) ? "active" : ""}`}
+                onClick={() => toggleFavorite(property.id)}
+              />
             </div>
           </div>
-        ))}
-      </div>
-
-      {/* Footer */}
-      <footer className="footer">
-        <p>&copy; 2024 My Website. All Rights Reserved.</p>
-      </footer>
+        </div>
+      ))}
     </div>
+
+    {/* Right: Favorites Container */}
+<div
+  className="favorites-container"
+  onDrop={handleDrop}
+  onDragOver={handleDragOver}
+>
+  <h2>Your Favorites</h2>
+  {favorites.map((favoriteId) => {
+    const property = propertiesData.properties.find((prop) => prop.id === favoriteId);
+    return (
+      <div className="item-box" key={favoriteId}>
+        <button
+          className="remove-item"
+          onClick={() => handleRemoveFavorite(favoriteId)}
+        >
+          ✖
+        </button>
+        <img
+          src={process.env.PUBLIC_URL + property.picture}
+          className="property-image"
+          alt={property.location}
+        />
+        <div className="property-details">
+          <h3>{property.type}</h3>
+          <h3>{property.bedrooms} Bedrooms</h3>
+          <p>{property.location}</p>
+          <p>Price: ${property.price}</p>
+          <p>Status: {property.status}</p>
+          <a href={property.url} className="view-details">
+            View Details
+          </a>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+  </div>
+
+  <footer className="footer">
+    <p>&copy; 2024 My Website. All Rights Reserved.</p>
+  </footer>
+</div>
   );
 };
 

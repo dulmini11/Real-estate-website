@@ -63,7 +63,10 @@ export const HomePage = () => {
     setFavorites(updatedFavorites);
   };
   
-  
+  // Handle remove all favorites
+  const handleRemoveAllFavorites = () => {
+    setFavorites([]); // Clear all favorites
+  };
 
   return (
     <div className="homepage-container">
@@ -119,20 +122,15 @@ export const HomePage = () => {
           onDragStart={(e) => handleDragStart(e, property.id)}
           onDragEnd={handleDragEnd}
         >
-          <img
-            src={process.env.PUBLIC_URL + property.picture}
-            className="property-image"
-            alt={property.location}
-          />
+          <img src={process.env.PUBLIC_URL + (Array.isArray(property.picture) ? property.picture[0] : property.picture)} className="property-image"alt={property.location}/>
           <div className="property-details">
             <h3>{property.type}</h3>
             <h3>{property.bedrooms} Bedrooms</h3>
             <p>{property.location}</p>
             <p>Price: ${property.price}</p>
             <p>Status: {property.status}</p>
-            <a href={property.url} className="view-details">
-              View Details
-            </a>
+            <Link to={`/property/${property.id}`} className="view-details">View Details</Link>
+
             <div className="favorite-container">
               <img
                 src={heartIcon}
@@ -153,6 +151,13 @@ export const HomePage = () => {
   onDragOver={handleDragOver}
 >
   <h2>Your Favorites</h2>
+  {/* Remove All Button */}
+  <button
+    className="remove-all-button"
+    onClick={handleRemoveAllFavorites}
+  >
+    Remove All
+  </button>
   {favorites.map((favoriteId) => {
     const property = propertiesData.properties.find((prop) => prop.id === favoriteId);
     return (
@@ -163,20 +168,15 @@ export const HomePage = () => {
         >
           ✖
         </button>
-        <img
-          src={process.env.PUBLIC_URL + property.picture}
-          className="property-image"
-          alt={property.location}
-        />
+        <img src={process.env.PUBLIC_URL + (Array.isArray(property.picture) ? property.picture[0] : property.picture)} className="property-image"alt={property.location}/>
         <div className="property-details">
           <h3>{property.type}</h3>
           <h3>{property.bedrooms} Bedrooms</h3>
           <p>{property.location}</p>
           <p>Price: ${property.price}</p>
           <p>Status: {property.status}</p>
-          <a href={property.url} className="view-details">
-            View Details
-          </a>
+          <Link to={`/property/${property.id}`} className="view-details"> View Details </Link>
+
         </div>
       </div>
     );

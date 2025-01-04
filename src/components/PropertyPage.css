@@ -1,0 +1,182 @@
+.property-page {
+
+    margin: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .property-page h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .property-page-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    
+  }
+  
+  .p-property-details {
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 900px;
+    height: 700px;
+    margin-left: 30px;
+    margin-bottom: 40px;
+    line-height: 3;
+    background-color: #2d2d2d0f;
+  
+}
+  
+  .property-details p {
+    margin-top: 20px;
+  }
+  
+  .property-page-main {
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  .image-carousel {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 75px;
+    width: 90%;
+    gap: 20px;
+    background-color: #00000013;
+  }
+  
+  .main-image-container {
+    margin-top: 50px;
+    position: relative;
+    width: 70%; 
+  }
+  
+  .property-page-image.main-image {
+    width: 70%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .prev-button,
+  .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .prev-button {
+    left: 0;
+  }
+  
+  .next-button {
+    right: 0;
+  }
+  
+  .prev-button:hover,
+  .next-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25%; 
+    align-items: center;
+  }
+  
+  .thumbnail {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .thumbnail-image {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .remaining-images {
+    text-align: center;
+    margin-top: 10px;
+    color: #888;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    margin-right: 30px;
+  }
+
+  .prperty-outline {
+    display: flex; /* Use flexbox to align items in a row */
+    flex-direction: row; /* Ensure items are in a horizontal layout */
+    justify-content: space-between; /* Add space between the containers */
+    gap: 20px; /* Optional: Space between the columns */
+    margin: 10px 0; /* Add margin for spacing around the section */
+}
+
+.p-property-details, .location-side {
+    flex: 1; /* Allow containers to take up equal space */
+    padding: 20px; /* Add padding inside each container */
+    background-color: #f9f9f9; /* Light background for visibility */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.location-side iframe {
+  width: 100%; /* Ensures the iframe takes up the full width of the parent div */
+  height: 650px; /* Sets a fixed height for the iframe */
+  border: none; /* Removes the border of the iframe */
+  border-radius: 8px; /* Matches the div's border radius */
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column; /* Stack the buttons vertically */
+  align-items: center; /* Center align the buttons */
+  gap: 10px; /* Add space between buttons */
+  margin-bottom: 30px;
+}
+
+.contact-button {
+  background: linear-gradient(to right top, #7aa39e,#627857);
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  display: inline-block;
+  border: none;
+  width: 500px;
+  height: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background:linear-gradient(to right top,#627857,#7aa39e);
+  cursor: pointer;
+}
+
+.location-side{
+  width: 300px;
+    height: 700px;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+  
+  

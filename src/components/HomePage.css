@@ -191,7 +191,7 @@ code {
 
 .item-box {
   width: 350px;
-  height: 455px;
+  height: 510px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -235,7 +235,7 @@ code {
 
 .favorites-container .item-box {
   width: 250px; /* Adjust width */
-  height: 350px; /* Adjust height */
+  height: 380px; /* Adjust height */
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -321,6 +321,24 @@ background-color: #cdcdcd6d;
 transform: translateY(-5px);
 transition: transform 0.3s, background-color 0.3s;
 }
+
+.remove-all-button {
+  background: linear-gradient(to right top,#7aa39e,#627857);
+  margin-left: 170px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.remove-all-button:hover {
+  background: linear-gradient(to right top,#627857,#7aa39e);
+}
+
+
 
 /* Footer styling */
 .footer {

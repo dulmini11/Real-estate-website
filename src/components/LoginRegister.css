@@ -14,12 +14,6 @@ body {
   background:#fff;
 }
 
-.logo {
-  margin-top: 30px;
-  height: 110px; /* Adjust the size of the logo */
-  width: auto;
-  cursor: pointer;
-}
 
 .container {
   left: 21%;
@@ -30,7 +24,8 @@ body {
   border-radius: 30px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  margin: 0px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   display: flex;
   transition: transform 0.6s ease-in-out;
 }
@@ -88,6 +83,7 @@ h1 {
 }
 
 .input-box input {
+  margin-top: 10px;
   width: 100%;
   padding: 13px;
   background: #eee;

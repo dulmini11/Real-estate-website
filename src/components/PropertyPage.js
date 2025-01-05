@@ -27,25 +27,21 @@ const PropertyPage = () => {
 
   return (
     <div className="property-page-container">
-      {/* Header Section */}
       <header className="header">
-        <a href="/" className="logo-link">
-          <img src={Logo} alt="Logo" className="logo" />
-        </a>
-        <nav className="navbar">
-          <ul className="navbar-items">
-            <li><a href="/">Home</a></li>
-            <li><a href="/properties/sale">Sale</a></li>
-            <li><a href="/properties/rent">Rent</a></li>
-            <li><a href="/about">About</a></li>
-          </ul>
-        </nav>
-        <a href="/LoginRegister" className="login-link">
+              <a href="/" className="logo-link">
+                <img src={Logo} alt="Logo" className="logo" />
+              </a>
+              <nav className="navbar">
+                <ul className="navbar-items">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about">About</a></li>
+                </ul>
+              </nav>
+              <a href="/LoginRegister" className="login-link">
         <img src={login} alt="Login/Register" className="login" />
         
         </a>
-
-      </header>
+            </header>
 
       {/* Main Content: Property Details */}
       <main className="property-page-main">
@@ -122,3 +118,4 @@ const PropertyPage = () => {
 };
 
 export default PropertyPage;
+

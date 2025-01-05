@@ -178,5 +178,79 @@
     margin-top: 20px;
     margin-right: 30px;
 }
-  
-  
+
+@media screen and (max-width: 768px) {
+  .p-property-details {
+      width: 100%;
+      height: 1400px;
+      margin-bottom: 20px;
+  }
+
+  .property-page h2 {
+      font-size: 1.5em;
+  }
+
+  .main-image-container {
+      width: 100%;
+  }
+
+  .property-page-image.main-image {
+      width: 100%;
+  }
+
+  .thumbnail-container {
+      width: 100%;
+      flex-direction: row;
+  }
+
+  .prperty-outline {
+      flex-direction: row; /* Keep items in a horizontal layout */
+      flex-wrap: wrap; /* Allow items to wrap into the next row */
+  }
+
+  .p-property-details, .location-side {
+      flex: 1 1 45%; /* Each container will take up 45% of the width */
+      margin: 10px; /* Add margin between items */
+  }
+
+  .contact-button {
+      margin-top: 20px;
+      width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .property-page {
+      margin: 10px;
+      padding: 10px;
+  }
+
+  .property-page h2 {
+      font-size: 1.2em;
+  }
+
+  .property-page-image.main-image {
+      width: 100%;
+  }
+
+  .image-carousel {
+      flex-direction: column;
+      margin-left: 0;
+  }
+
+  .main-image-container {
+      width: 100%;
+  }
+
+  .prperty-outline {
+      flex-direction: column; /* Stack items vertically */
+  }
+
+  .p-property-details, .location-side {
+      flex: 1 1 100%; /* Each item takes up full width */
+      margin: 5px 0; /* Reduce margin to fit content */
+  }
+
+  .contact-button {
+      width: 100%;
+  }
+}

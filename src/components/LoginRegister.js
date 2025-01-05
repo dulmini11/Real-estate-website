@@ -4,6 +4,7 @@ import googleIcon from './images/google_icon.png';
 import fbIcon from './images/fb_icon.png';
 import instagramIcon from './images/instagram_icon.png';
 import Logo from './images/logo.png'; // Import logo image
+import login from "../components/images/login.png";
 
 const LoginRegister = () => {
   const [isActive, setIsActive] = useState(false); // To toggle between login and register forms
@@ -49,9 +50,18 @@ const LoginRegister = () => {
   return (
     <div>
       
-        <a href="/" className="logo-link">
-          <img src={Logo} alt="Logo" className="logo" />
-        </a>
+      <header className="header">
+              <a href="/" className="logo-link">
+                <img src={Logo} alt="Logo" className="logo" />
+              </a>
+              <nav className="navbar">
+                <ul className="navbar-items">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about">About</a></li>
+                </ul>
+              </nav>
+                <img src={login} alt="Login" className="login" />
+            </header>
         
     
       <div className={`container ${isActive ? 'active' : ''}`}>
@@ -145,6 +155,9 @@ const LoginRegister = () => {
           </div>
         </div>
       </div>
+      <footer className="footer">
+        <p>&copy; 2024 My Website. All Rights Reserved.</p>
+      </footer>
     </div>
   );
 };
